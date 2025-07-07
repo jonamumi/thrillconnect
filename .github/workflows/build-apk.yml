@@ -1,0 +1,45 @@
+name: Build Android APK
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Login to Expo
+        env:
+          EXPO_CLI_USERNAME: ${{ secrets.EXPO_CLI_USERNAME }}
+          EXPO_CLI_PASSWORD: ${{ secrets.EXPO_CLI_PASSWORD }}
+        run: eas login --username $EXPO_CLI_USERNAME --password $EXPO_CLI_PASSWORD
+
+      - name: Configure EAS
+        run: eas build:configure
+
+      - name: Build Android APK
+        run: eas build --platform android --profile production --non-interactive
+
+      - name: Download APK artifact
+        run: |
+          mkdir -p output
+          curl -L "$(eas build:list --limit 1 --status finished --json | jq -r '.[0].artifacts.buildUrl')" \
+            --output output/thrillconnect.apk
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: thrillconnect-apk
+          path: output/thrillconnect.apk
