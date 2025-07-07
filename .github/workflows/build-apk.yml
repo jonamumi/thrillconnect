@@ -1,11 +1,14 @@
 name: Build Android APK
+
 on:
   push:
     branches: [ main ]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -38,9 +41,16 @@ jobs:
           curl -L "$(eas build:list --limit 1 --status finished --json | jq -r '.[0].artifacts.buildUrl')" \
             --output output/thrillconnect.apk
 
-      - name: Upload APK
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
-
         with:
           name: thrillconnect-apk
           path: output/thrillconnect.apk
+
+      - name: Publish APK to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: output/thrillconnect.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
