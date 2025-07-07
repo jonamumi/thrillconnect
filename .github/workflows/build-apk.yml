@@ -39,7 +39,8 @@ jobs:
             --output output/thrillconnect.apk
 
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
+
         with:
           name: thrillconnect-apk
           path: output/thrillconnect.apk
