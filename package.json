@@ -1,5 +1,30 @@
 {
   "devDependencies": {
     "eas-cli": "^16.13.3"
+  },
+  "dependencies": {
+    "@expo/config-plugins": "~10.0.0",
+    "@expo/prebuild-config": "~9.0.0",
+    "@react-navigation/bottom-tabs": "^7.4.2",
+    "@react-navigation/native": "^7.1.14",
+    "@react-navigation/native-stack": "^7.3.21",
+    "axios": "^1.10.0",
+    "cheerio": "^1.1.0",
+    "expo": "^53.0.15",
+    "firebase-admin": "^13.4.0",
+    "react": "19.0.0",
+    "react-native": "0.79.4",
+    "react-native-gesture-handler": "~2.9.0",
+    "react-native-maps": "^1.20.1",
+    "react-native-safe-area-context": "4.5.0",
+    "react-native-screens": "~3.20.0"
+  },
+  "name": "ThrillConnect",
+  "version": "1.0.0",
+  "scripts": {
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "start": "expo start",
+    "test": "jest"
   }
 }

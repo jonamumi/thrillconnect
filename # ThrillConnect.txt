@@ -1,0 +1,15 @@
+# ThrillConnect
+
+Proyecto Expo/React Native.
+
+## Instalación
+
+```sh
+npm install
+```
+
+## Ejecución
+
+```sh
+npm start
+```
