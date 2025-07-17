@@ -1,24 +1,23 @@
-const admin = require('firebase-admin');
-const fs = require('fs');
+import fetch from 'node-fetch';
+import { parseHTML } from './parseHTML.js';
+import { ENV } from '../env.js';
+import { db } from '../firebase/firestore.js';
+import { setDoc, doc } from 'firebase/firestore';
 
-// Asegúrate de que el nombre del archivo coincida con tu archivo de credenciales
-const serviceAccount = require('./firebase-credentials.json');
+async function ejecutarScrapingYSubida() {
+  const url = `${ENV.apiUrl}/parques.html`;
+  const res = await fetch(url);
+  const html = await res.text();
+  const atracciones = parseHTML(html);
+  const coleccion = ENV.environment === 'production' ? 'atracciones' : 'atracciones-preview';
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
-
-const db = admin.firestore();
-
-const parques = JSON.parse(fs.readFileSync('parques.json', 'utf8'));
-
-async function uploadParques() {
-  for (const parque of parques) {
-    await db.collection('parques').add(parque);
-    console.log(`Subido: ${parque.nombre}`);
+  for (const atraccion of atracciones) {
+    const id = atraccion.nombre.toLowerCase().replace(/\s+/g, '-');
+    await setDoc(doc(db, coleccion, id), atraccion);
+    console.log(`✅ Subida: ${atraccion.nombre}`);
   }
-  console.log('Todos los parques subidos.');
-  process.exit();
+
+  console.log('🎉 Subida completa');
 }
 
-uploadParques();
+ejecutarScrapingYSubida();

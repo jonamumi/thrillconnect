@@ -1,0 +1,15 @@
+{
+  "name": "Montaña Rusa Infernal",
+  "park": "PortAventura",
+  "location": "Salou, España",
+  "type": "Steel",
+  "design": "Inverted",
+  "height": "42m",
+  "speed": "110km/h",
+  "length": "1200m",
+  "duration": "2:30",
+  "inversions": 4,
+  "angle": "70°",
+  "manufacturer": "B&M",
+  "image": "https://rcdb.com/images/1234.jpg"
+}

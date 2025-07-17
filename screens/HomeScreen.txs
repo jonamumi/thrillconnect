@@ -1,0 +1,36 @@
+import React, { useEffect, useState } from 'react';
+import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { fetchAttractions } from '../data/attractions';
+
+export default function HomeScreen() {
+  const navigation = useNavigation();
+  const [attractions, setAttractions] = useState([]);
+
+  useEffect(() => {
+    fetchAttractions().then(setAttractions);
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>🎡 Bienvenido a ThrillConnect</Text>
+      <FlatList
+        data={attractions}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Detalles', { attraction: item })}
+            style={styles.card}
+          >
+            <Image source={{ uri: item.image }} style={styles.image} />
+            <Text style={styles.name}>{item.name}</Text>
+            <Text style={styles.description}>{item.description}</Text>
+          </TouchableOpacity>
+        )}
+        showsVerticalScrollIndicator={false}
+      />
+    </View>
+  );
+}
+
+const styles = { /* mismos estilos que antes */ };

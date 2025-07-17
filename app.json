@@ -13,11 +13,12 @@
       "package": "com.joning.thrillconnect",
       "versionCode": 2
     },
-    "sdkVersion": "48.0.0",
     "extra": {
       "eas": {
         "projectId": "140ddd96-1229-4fc2-80d4-3e6119880583"
-      }
+      },
+      "ENVIRONMENT": "preview",
+      "API_URL": "https://preview.thrillconnect.com"
     }
   }
 }
