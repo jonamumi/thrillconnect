@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "owner": "joning",
+    "name": "ThrillConnect",
+    "slug": "thrillconnect",
+    "version": "1.0.0",
+    "description": "Red social para amantes de parques de atracciones",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "thrillconnect",
+    "platforms": ["android"],
+    "sdkVersion": "53.0.0",
+    "android": {
+      "package": "com.joning.thrillconnect",
+      "icon": "./assets/icon.png",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "eas": {
+      "projectId": "140ddd96-1229-4fc2-80d4-3e6119880583"
+    },
+    "extra": {
+      "ENVIRONMENT": "preview",
+      "API_URL": "https://preview.thrillconnect.com"
+    }
+  }
+}

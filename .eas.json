@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "owner": "joning",
+    "name": "ThrillConnect",
+    "slug": "thrillconnect",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "thrillconnect",
+    "platforms": ["android"],
+    "android": {
+      "package": "com.joning.thrillconnect",
+      "versionCode": 2,
+      "icon": "./assets/icon.png",
+      "adaptiveIcon": {
+        // Opción A: usar el mismo icon.png como foreground
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "eas": {
+      "projectId": "140ddd96-1229-4fc2-80d4-3e6119880583"
+    },
+    "extra": {
+      "ENVIRONMENT": "preview",
+      "API_URL": "https://preview.thrillconnect.com"
+    }
+  }
+}
