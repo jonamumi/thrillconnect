@@ -1,1 +1,30 @@
+# Archivos de compilación de Gradle
+.gradle/
+build/
+*/build/
+
+# Archivos de salida de APK
+*.apk
+*.ap_
+
+# Archivos de configuración local
+local.properties
+
+# Archivos de entorno de Android Studio
+.idea/
+*.iml
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos de caché
+.cache/
 node_modules
