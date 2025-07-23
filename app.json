@@ -1,29 +1,32 @@
 {
   "expo": {
-    "owner": "joning",
     "name": "ThrillConnect",
     "slug": "thrillconnect",
     "version": "1.0.0",
-    "description": "Red social para amantes de parques de atracciones",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "scheme": "thrillconnect",
-    "platforms": ["android"],
-    "sdkVersion": "53.0.0",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
     "android": {
-      "package": "com.joning.thrillconnect",
-      "icon": "./assets/icon.png",
+      "package": "com.rollercoastershow.thrillconnect",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
       }
     },
-    "eas": {
-      "projectId": "140ddd96-1229-4fc2-80d4-3e6119880583"
-    },
-    "extra": {
-      "ENVIRONMENT": "preview",
-      "API_URL": "https://preview.thrillconnect.com"
+    "web": {
+      "favicon": "./assets/favicon.png"
     }
   }
 }
